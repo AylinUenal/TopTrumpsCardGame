@@ -10,14 +10,14 @@
   <body>
     <section id="table">
       <div class="table-half player1-table">
-        <div class="card player1-card card-front">
+        <div class="card player1-card card-front hide">
           <img
             id="animal-img-player1"
             class="animal-img"
             src="images/koala.jpg"
             alt="placeholder animal image"
           />
-          <h3 id="animal-img-player1">animal name</h3>
+          <h3 id="animal-name-player1">animal name</h3>
 
           <table>
             <tbody>
@@ -39,24 +39,23 @@
               </tr>
             </tbody>
           </table>
-
-          <img
-            class="card card-backside hide"
-            src="images/card-backside.jpg"
-            alt="card backside"
-          />
         </div>
+        <img
+          class="card card-backside card-backside-player1"
+          src="images/card-backside.jpg"
+          alt="card backside"
+        />
       </div>
 
       <div class="table-half player2-table">
-        <div class="card player2-card card-front">
+        <div class="card player2-card card-front hide">
           <img
             id="animal-img-player2"
             class="animal-img"
             src="images/koala.jpg"
             alt="placeholder animal image"
           />
-          <h3 id="animal-img-player2">animal name</h3>
+          <h3 id="animal-name-player2">animal name</h3>
 
           <table>
             <tbody>
@@ -78,26 +77,31 @@
               </tr>
             </tbody>
           </table>
-
-          <img
-            class="card card-backside hide"
-            src="images/card-backside.jpg"
-            alt="card backside"
-          />
         </div>
+        <img
+          class="card card-backside card-backside-player2"
+          src="images/card-backside.jpg"
+          alt="card backside"
+        />
       </div>
     </section>
     <section id="action-panel">
       <button class="btn start-button">Start Game</button>
+      <button class="btn replay-button hide">Play again</button>
 
       <ul class="action-buttons">
-        <li><button class="btn btn-speed hide">top speed</button></li>
-        <li><button class="btn btn-fear hide">fear factor</button></li>
-        <li><button class="btn btn-cute hide">cuteness</button></li>
-        <li><button class="btn btn-life hide">life span</button></li>
+        <li>
+          <button class="btn action-btn btn-speed hide">top speed</button>
+        </li>
+        <li>
+          <button class="btn action-btn btn-fear hide">fear factor</button>
+        </li>
+        <li><button class="btn action-btn btn-cute hide">cuteness</button></li>
+        <li><button class="btn action-btn btn-life hide">life span</button></li>
       </ul>
     </section>
 
-    <div></div>
+    <script src="cardDeck.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
