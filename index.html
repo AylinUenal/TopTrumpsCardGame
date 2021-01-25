@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Trumps Game by Aylin</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="table">
+      <div class="table-half player1-table">
+        <div class="card player1-card card-front">
+          <img
+            id="animal-img-player1"
+            class="animal-img"
+            src="images/koala.jpg"
+            alt="placeholder animal image"
+          />
+          <h3 id="animal-img-player1">animal name</h3>
+
+          <table>
+            <tbody>
+              <tr>
+                <td>top speed:</td>
+                <td id="speed-player1">0</td>
+              </tr>
+              <tr>
+                <td>fear factor:</td>
+                <td id="fear-player1">0</td>
+              </tr>
+              <tr>
+                <td>cuteness:</td>
+                <td id="cute-player1">0</td>
+              </tr>
+              <tr>
+                <td>life span:</td>
+                <td id="life-player1">0</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <img
+            class="card card-backside hide"
+            src="images/card-backside.jpg"
+            alt="card backside"
+          />
+        </div>
+      </div>
+
+      <div class="table-half player2-table">
+        <div class="card player2-card card-front">
+          <img
+            id="animal-img-player2"
+            class="animal-img"
+            src="images/koala.jpg"
+            alt="placeholder animal image"
+          />
+          <h3 id="animal-img-player2">animal name</h3>
+
+          <table>
+            <tbody>
+              <tr>
+                <td>top speed:</td>
+                <td id="speed-player2">0</td>
+              </tr>
+              <tr>
+                <td>fear factor:</td>
+                <td id="fear-player2">0</td>
+              </tr>
+              <tr>
+                <td>cuteness:</td>
+                <td id="cute-player2">0</td>
+              </tr>
+              <tr>
+                <td>life span:</td>
+                <td id="life-player2">0</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <img
+            class="card card-backside hide"
+            src="images/card-backside.jpg"
+            alt="card backside"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="action-panel">
+      <button class="btn start-button">Start Game</button>
+
+      <ul class="action-buttons">
+        <li><button class="btn btn-speed hide">top speed</button></li>
+        <li><button class="btn btn-fear hide">fear factor</button></li>
+        <li><button class="btn btn-cute hide">cuteness</button></li>
+        <li><button class="btn btn-life hide">life span</button></li>
+      </ul>
+    </section>
+
+    <div></div>
+  </body>
+</html>

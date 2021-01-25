@@ -1,0 +1,74 @@
+body {
+  background-color: whitesmoke;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#table {
+  display: flex;
+}
+
+.card {
+  height: 400px;
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.card-front {
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.animal-img {
+  height: 155px;
+  width: 230px;
+  border-radius: 15px;
+}
+
+.hide {
+  display: none;
+}
+
+.table-half {
+  height: 600px;
+  width: 600px;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#action-panel {
+  height: 200px;
+  width: 1200px;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.action-buttons .btn {
+  padding: 25px;
+  margin: 30px;
+}
+
+.start-button {
+  padding: 35px;
+  margin: 10px;
+}
+
+.btn {
+  cursor: pointer;
+}
