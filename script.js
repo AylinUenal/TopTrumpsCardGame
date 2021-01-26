@@ -1,8 +1,18 @@
+let cardPlayer1;
+let cardPlayer2;
 
 const actionButtons = document.querySelectorAll(".action-btn");
 
-let cardPlayer1;
-let cardPlayer2;
+function playWin() {
+    const winSound = new Audio('sounds/win.ogg');
+        winSound.play();
+}
+
+function playLost() {
+const lostSound = new Audio('sounds/lose.flac');
+    lostSound.play();
+}
+
 
 function startGame() {
 
@@ -57,9 +67,11 @@ function compareSpeed() {
    
     if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
         message.innerHTML = "You win!";
+        playWin();
         console.log('you win');
     } else {
         message.innerHTML = "You lose!";
+        playLost();
         console.log('you lose');
     }
 
@@ -73,9 +85,11 @@ function compareFear() {
    
     if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
         message.innerHTML = "You win!";
+        playWin();
         console.log('you win');
     } else {
         message.innerHTML = "You lose!";
+        playLost();
         console.log('you lose');
     }
 
@@ -89,9 +103,12 @@ function compareCute() {
    
     if (cardPlayer1.cuteness > cardPlayer2.cuteness) {
         message.innerHTML = "You win!";
+        playWin();
+
         console.log('you win');
     } else {
         message.innerHTML = "You lose!";
+        playLost();
         console.log('you lose');
     }
 
@@ -105,9 +122,11 @@ function compareLife() {
    
     if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
         message.innerHTML = "You win!";
+        playWin();
         console.log('you win');
     } else {
         message.innerHTML = "You lose!";
+        playLost();
         console.log('you lose');
     }
 

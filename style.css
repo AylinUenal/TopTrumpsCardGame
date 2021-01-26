@@ -1,3 +1,5 @@
+/* // colour palette: https://coolors.co/069e2d-058e3f-04773b-036016-03440c */
+
 body {
   background-color: rgb(235, 229, 229);
   font-family: "Patrick Hand", cursive;
@@ -21,9 +23,17 @@ body::after {
 
 #table {
   display: flex;
-  background-color: #a2d6a7;
+  background-color: #80e85a;
   margin-top: 40px;
   line-height: 30px;
+  position: relative;
+}
+
+.table-separation {
+  width: 183px;
+  height: 600px;
+  position: absolute;
+  left: 43%;
 }
 
 .card {
@@ -34,7 +44,7 @@ body::after {
 }
 
 .card-front {
-  background-color: yellowgreen;
+  background-color: #b6eca3;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -54,7 +64,6 @@ body::after {
 .table-half {
   height: 600px;
   width: 50%;
-  border: 1px solid green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,12 +71,27 @@ body::after {
 
 #action-panel {
   height: 200px;
-  background-color: #238b04;
+  background-color: #fbb02d;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 10px solid #002100;
+  border: 1px outset #516948;
   border-radius: 0 0 15px 15px;
+  position: relative;
+}
+
+.branch {
+  width: 120px;
+  height: 200px;
+  position: absolute;
+}
+
+.left-side {
+  left: -47px;
+}
+
+.right-side {
+  right: -51px;
 }
 
 .message-field {
@@ -97,7 +121,7 @@ body::after {
 }
 
 .action-buttons .btn:hover {
-  background-image: url("images/tree_branch.png");
+  background-image: url("images/vegetation_fern_01.png");
   background-size: cover;
 }
 
