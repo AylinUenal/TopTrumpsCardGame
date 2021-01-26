@@ -1,6 +1,9 @@
 
 const actionButtons = document.querySelectorAll(".action-btn");
 
+let cardPlayer1;
+let cardPlayer2;
+
 function startGame() {
 
     //hides start-button (class add .hide)
@@ -12,8 +15,8 @@ function startGame() {
 
     // select random card from cardDeck and assign a card to both players
     
-        let cardPlayer1 = cards[Math.floor(Math.random() * cards.length)];
-        let cardPlayer2 = cards[Math.floor(Math.random() * cards.length)];
+        cardPlayer1 = cards[Math.floor(Math.random() * cards.length)];
+        cardPlayer2 = cards[Math.floor(Math.random() * cards.length)];
 
         while (cardPlayer1 === cardPlayer2) {
             cardPlayer2 = cards[Math.floor(Math.random() * cards.length)];
@@ -40,20 +43,85 @@ function startGame() {
     document.getElementById("cute-player2").innerHTML = cardPlayer2.cuteness;
     document.getElementById("life-player2").innerHTML = cardPlayer2.lifeSpan;
     
+
     }
     
-
+let message = document.querySelector(".message-field");
  
+
+// on click action button read value from button for player1 and 2 and compare, display you win or you lose (add transition)
+
+function compareSpeed() {
+    
+        message.classList.remove("hide");
+   
+    if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
+        message.innerHTML = "You win!";
+        console.log('you win');
+    } else {
+        message.innerHTML = "You lose!";
+        console.log('you lose');
+    }
+
+    chooseAction();
+    
+}
+
+function compareFear() {
+    
+        message.classList.remove("hide");
+   
+    if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
+        message.innerHTML = "You win!";
+        console.log('you win');
+    } else {
+        message.innerHTML = "You lose!";
+        console.log('you lose');
+    }
+
+    chooseAction();
+    
+}
+
+function compareCute() {
+    
+        message.classList.remove("hide");
+   
+    if (cardPlayer1.cuteness > cardPlayer2.cuteness) {
+        message.innerHTML = "You win!";
+        console.log('you win');
+    } else {
+        message.innerHTML = "You lose!";
+        console.log('you lose');
+    }
+
+    chooseAction();
+    
+}
+
+function compareLife() {
+    
+        message.classList.remove("hide");
+   
+    if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
+        message.innerHTML = "You win!";
+        console.log('you win');
+    } else {
+        message.innerHTML = "You lose!";
+        console.log('you lose');
+    }
+
+    chooseAction();
+    
+}
+
+
+
 function chooseAction() {
     
-    // display card player2
-    document.querySelector(".card-backside-player2").classList.add("hide");
-    document.querySelector(".player2-card").classList.remove("hide");
-
-    // on click action button read value from button for player1 and 2 and compare, display you win or you lose (add transition)
-
-
-
+// display card player2
+document.querySelector(".card-backside-player2").classList.add("hide");
+document.querySelector(".player2-card").classList.remove("hide");
 
 // hide action buttons
     actionButtons.forEach(button => button.classList.add("hide"));
@@ -67,6 +135,7 @@ function chooseAction() {
 // on click replay button:
 function replay() {
 
+    message.classList.add("hide");
     document.querySelector(".card-backside-player1").classList.remove("hide");
     document.querySelector(".card-backside-player2").classList.remove("hide");
 
@@ -86,16 +155,17 @@ const startButton = document.querySelector('.start-button');
 startButton.addEventListener('click', startGame);
 
 const speedButton = document.querySelector('.btn-speed');
-speedButton.addEventListener('click', chooseAction);
+speedButton.addEventListener('click', compareSpeed);
 
 const fearButton = document.querySelector('.btn-fear');
-fearButton.addEventListener('click', chooseAction);
+fearButton.addEventListener('click', compareFear);
 
 const cuteButton = document.querySelector('.btn-cute');
-cuteButton.addEventListener('click', chooseAction);
+cuteButton.addEventListener('click', compareCute);
 
 const lifeButton = document.querySelector('.btn-life');
-lifeButton.addEventListener('click', chooseAction);
+lifeButton.addEventListener('click', compareLife);
 
 const replayButton = document.querySelector('.replay-button');
 replayButton.addEventListener('click', replay);
+
