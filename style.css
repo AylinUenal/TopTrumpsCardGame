@@ -53,6 +53,7 @@ body::after {
   height: 600px;
   position: absolute;
   left: 43%;
+  transform: rotate(5deg);
 }
 
 .card {
@@ -102,7 +103,7 @@ body::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px outset #516948;
+  border-top: 1px outset #2a6d20;
   border-radius: 0 0 15px 15px;
   position: relative;
 }
@@ -129,12 +130,14 @@ body::after {
   position: absolute;
   left: 43%;
   font-size: 30px;
+  text-shadow: 3px 3px 2px #fbb;
 }
 
 .btn {
+  background-color: #b6eca3;
   cursor: pointer;
   font-family: "Patrick Hand", cursive;
-  font-size: 20px;
+  font-size: 30px;
   border-radius: 15px;
   box-shadow: 15px 25px 15px -5px rgba(13, 51, 13, 0.8);
 }
@@ -165,7 +168,7 @@ body::after {
   cursor: pointer;
   text-decoration: none !important;
   outline: none !important;
-  font-size: 20px;
+  font-size: 35px;
   line-height: 1.5em;
   letter-spacing: 0.1em;
   border: none;
@@ -298,4 +301,23 @@ body::after {
 .replay-button {
   position: absolute;
   left: 20%;
+  padding: 20px;
+  animation: replay-button 0.9s ease 2s infinite alternate;
+  transition-duration: 5.4s;
+}
+
+.replay-button:hover {
+  animation: none;
+}
+
+@keyframes replay-button {
+  0% {
+    transform: scale(1.1, 0.9);
+  }
+  50% {
+    -webkit-transform: scale(0.9, 1.1) translateY(-0.5rem);
+  }
+  70% {
+    transform: scale(1);
+  }
 }
