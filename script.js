@@ -2,7 +2,8 @@ let cardPlayer1;
 let cardPlayer2;
 
 const actionButtons = document.querySelectorAll(".action-btn");
-
+const message = document.querySelector(".message-field");
+ 
 function playWin() {
     const winSound = new Audio('sounds/win.ogg');
         winSound.play();
@@ -66,21 +67,29 @@ function startGame() {
 
     }
     
-let message = document.querySelector(".message-field");
- 
+function win() {
+message.innerHTML = "You win!";
+        document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.remove("hide"));
+        playWin();
+}
+
+function lost() {
+        message.innerHTML = "You lose!";
+        playLost();
+}
 
 // on click action button read value from button for player1 and 2 and compare, display you win or you lose (add transition)
 
 function compareSpeed() {
     
-        message.classList.remove("hide");
+    message.classList.remove("hide");
+    document.querySelector("#speed-player1").classList.add("highlight");
+    document.querySelector("#speed-player2").classList.add("highlight");
    
     if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
-        message.innerHTML = "You win!";
-        playWin();
+        win();
     } else {
-        message.innerHTML = "You lose!";
-        playLost();
+        lost();
     }
 
     chooseAction();
@@ -90,13 +99,13 @@ function compareSpeed() {
 function compareFear() {
     
         message.classList.remove("hide");
-   
+   document.querySelector("#fear-player1").classList.add("highlight");
+    document.querySelector("#fear-player2").classList.add("highlight");
+
     if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
-        message.innerHTML = "You win!";
-        playWin();
+        win();
     } else {
-        message.innerHTML = "You lose!";
-        playLost();
+        lost();
     }
 
     chooseAction();
@@ -105,16 +114,15 @@ function compareFear() {
 
 function compareCute() {
     
-        message.classList.remove("hide");
+    message.classList.remove("hide");
+    document.querySelector("#cute-player1").classList.add("highlight");
+    document.querySelector("#cute-player2").classList.add("highlight");
    
     if (cardPlayer1.cuteness > cardPlayer2.cuteness) {
-        message.innerHTML = "You win!";
-        playWin();
+        win();
 
-        console.log('you win');
     } else {
-        message.innerHTML = "You lose!";
-        playLost();
+        lost();
     }
 
     chooseAction();
@@ -123,20 +131,19 @@ function compareCute() {
 
 function compareLife() {
     
-        message.classList.remove("hide");
+    message.classList.remove("hide");
+    document.querySelector("#life-player1").classList.add("highlight");
+    document.querySelector("#life-player2").classList.add("highlight");
    
     if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
-        message.innerHTML = "You win!";
-        playWin();
+        win();
     } else {
-        message.innerHTML = "You lose!";
-        playLost();
+        lost();
     }
 
     chooseAction();
     
 }
-
 
 
 function chooseAction() {
@@ -150,14 +157,15 @@ document.querySelector(".player2-card").classList.remove("hide");
 
 // display replay button
     document.querySelector(".replay-button").classList.remove("hide");
-    
 
 }
 
 
-// on click replay button:
 function replay() {
 
+    document.querySelectorAll("td").forEach(element => element.classList.remove("highlight"));
+    document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.add("hide"));
+    
     message.classList.add("hide");
     document.querySelector(".card-backside-player1").classList.remove("hide");
     document.querySelector(".card-backside-player2").classList.remove("hide");
@@ -168,8 +176,6 @@ function replay() {
     startButton.classList.remove("hide");
     document.querySelector(".replay-button").classList.add("hide");
 }
-//display card-backside, display start game button
-
 
 
 // eventListeners for buttons
