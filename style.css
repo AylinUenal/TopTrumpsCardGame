@@ -130,7 +130,7 @@ body::after {
   position: absolute;
   left: 43%;
   font-size: 30px;
-  text-shadow: 3px 3px 2px #fbb;
+  text-shadow: 3px 3px 2px #fbb02d;
 }
 
 .btn {
@@ -302,8 +302,14 @@ body::after {
   position: absolute;
   left: 20%;
   padding: 20px;
+  background-color: #80e85a;
   animation: replay-button 0.9s ease 2s infinite alternate;
   transition-duration: 5.4s;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628, -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628, 0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
 }
 
 .replay-button:hover {
