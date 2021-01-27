@@ -13,9 +13,19 @@ const lostSound = new Audio('sounds/lose.flac');
     lostSound.play();
 }
 
+function playBirds() {
+    const birdSong2 = new Audio('sounds/amb_bird_2.flac');
+        birdSong2.play();
+    const birdSong1 = new Audio('sounds/amb_bird_1.flac');
+        birdSong1.play();
+}
+
+
 
 function startGame() {
 
+    playBirds();
+    
     //hides start-button (class add .hide)
     startButton.classList.add("hide");
 
@@ -39,19 +49,19 @@ function startGame() {
 
 // assign card values to both players in DOM
     
-    document.getElementById("animal-name-player1").innerHTML = cardPlayer1.name;
-    document.getElementById("animal-img-player1").src = cardPlayer1.image;
-    document.getElementById("speed-player1").innerHTML = cardPlayer1.topSpeed;
-    document.getElementById("fear-player1").innerHTML = cardPlayer1.fearFactor;
-    document.getElementById("cute-player1").innerHTML = cardPlayer1.cuteness;
-    document.getElementById("life-player1").innerHTML = cardPlayer1.lifeSpan;
+    document.querySelector("#animal-name-player1").innerHTML = cardPlayer1.name;
+    document.querySelector("#animal-img-player1").src = cardPlayer1.image;
+    document.querySelector("#speed-player1 span").innerHTML = cardPlayer1.topSpeed;
+    document.querySelector("#fear-player1").innerHTML = cardPlayer1.fearFactor;
+    document.querySelector("#cute-player1").innerHTML = cardPlayer1.cuteness;
+    document.querySelector("#life-player1 span").innerHTML = cardPlayer1.lifeSpan;
     
-    document.getElementById("animal-name-player2").innerHTML = cardPlayer2.name;
-    document.getElementById("animal-img-player2").src = cardPlayer2.image;
-    document.getElementById("speed-player2").innerHTML = cardPlayer2.topSpeed;
-    document.getElementById("fear-player2").innerHTML = cardPlayer2.fearFactor;
-    document.getElementById("cute-player2").innerHTML = cardPlayer2.cuteness;
-    document.getElementById("life-player2").innerHTML = cardPlayer2.lifeSpan;
+    document.querySelector("#animal-name-player2").innerHTML = cardPlayer2.name;
+    document.querySelector("#animal-img-player2").src = cardPlayer2.image;
+    document.querySelector("#speed-player2 span").innerHTML = cardPlayer2.topSpeed;
+    document.querySelector("#fear-player2").innerHTML = cardPlayer2.fearFactor;
+    document.querySelector("#cute-player2").innerHTML = cardPlayer2.cuteness;
+    document.querySelector("#life-player2 span").innerHTML = cardPlayer2.lifeSpan;
     
 
     }
@@ -68,11 +78,9 @@ function compareSpeed() {
     if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
         message.innerHTML = "You win!";
         playWin();
-        console.log('you win');
     } else {
         message.innerHTML = "You lose!";
         playLost();
-        console.log('you lose');
     }
 
     chooseAction();
@@ -86,11 +94,9 @@ function compareFear() {
     if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
         message.innerHTML = "You win!";
         playWin();
-        console.log('you win');
     } else {
         message.innerHTML = "You lose!";
         playLost();
-        console.log('you lose');
     }
 
     chooseAction();
@@ -109,7 +115,6 @@ function compareCute() {
     } else {
         message.innerHTML = "You lose!";
         playLost();
-        console.log('you lose');
     }
 
     chooseAction();
@@ -123,11 +128,9 @@ function compareLife() {
     if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
         message.innerHTML = "You win!";
         playWin();
-        console.log('you win');
     } else {
         message.innerHTML = "You lose!";
         playLost();
-        console.log('you lose');
     }
 
     chooseAction();
@@ -148,6 +151,7 @@ document.querySelector(".player2-card").classList.remove("hide");
 // display replay button
     document.querySelector(".replay-button").classList.remove("hide");
     
+
 }
 
 
@@ -187,4 +191,5 @@ lifeButton.addEventListener('click', compareLife);
 
 const replayButton = document.querySelector('.replay-button');
 replayButton.addEventListener('click', replay);
+
 

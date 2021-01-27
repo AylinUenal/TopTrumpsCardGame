@@ -30,6 +30,24 @@ body::after {
   border-radius: 15px 15px 0 0;
 }
 
+.title {
+  position: absolute;
+  font-size: 70px;
+  color: #2a6d20;
+  text-decoration: underline wavy 4px;
+  text-shadow: 5px 2px 6px #fbb02d;
+}
+.title-right {
+  right: 2px;
+  transform: rotate(30deg);
+}
+
+.title-left {
+  left: 16px;
+  transform: rotate(-30deg);
+  top: -21px;
+}
+
 .table-separation {
   width: 183px;
   height: 600px;
@@ -41,7 +59,7 @@ body::after {
   height: 400px;
   width: 250px;
   border-radius: 15px;
-  box-shadow: 0 20px 15px -5px rgba(0, 0, 0, 0.7);
+  box-shadow: 13px 20px 15px -5px rgba(0, 0, 0, 0.7);
 }
 
 .card-front {
@@ -53,12 +71,12 @@ body::after {
 }
 
 .card-front table {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .animal-img {
   height: 160px;
-    width: 250px;
+  width: 250px;
   border-radius: 15px;
 }
 
@@ -92,17 +110,21 @@ body::after {
 }
 
 .left-side {
-  left: -47px;
+  left: -34px;
 }
 
 .right-side {
-  right: -51px;
+  right: -33px;
 }
 
 .message-field {
-  background-color: #a2d6a7;
-  padding: 35px;
+  background-color: #b6eca3;
+  padding: 38px;
   border-radius: 15px;
+  border: 17px ridge #80e853;
+  position: absolute;
+  left: 43%;
+  font-size: 30px;
 }
 
 .btn {
@@ -128,9 +150,9 @@ body::after {
 }
 
 .action-btn:hover {
-    background-image: url("images/vegetation_fern_01.png");
-    background-size: cover;
-    transform: scale(1.1);
+  background-image: url("images/vegetation_fern_01.png");
+  background-size: cover;
+  transform: scale(1.1);
 }
 
 .start-button {
@@ -189,4 +211,9 @@ body::after {
   right: 5%;
   top: -3%;
   border-radius: 99px;
+}
+
+.replay-button {
+  position: absolute;
+  left: 20%;
 }

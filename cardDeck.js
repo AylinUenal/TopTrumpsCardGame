@@ -23,8 +23,8 @@ const cards = [
         image: "images/kangaroo.jpg",
         name: 'Red Kangaroo',
         topSpeed: 70,
-        fearFactor: 3,
-        cuteness: 8,
+        fearFactor: 5,
+        cuteness: 7,
         lifeSpan: 23
         
     },
@@ -33,7 +33,7 @@ const cards = [
         image: "images/turtle.jpg",
         name: 'Galapagos Turtoise',
         topSpeed: 0.27,
-        fearFactor: 1,
+        fearFactor: 2,
         cuteness: 4,
         lifeSpan: 100
         
@@ -47,8 +47,23 @@ const cards = [
         cuteness: 5,
         lifeSpan: 30
         
+    },
+    {
+        image: "images/koala.jpg",
+        name: 'Koala Bear',
+        topSpeed: 10,
+        fearFactor: 1,
+        cuteness: 9,
+        lifeSpan: 18
+    },
+     {
+        image: "images/flamingo.jpg",
+        name: 'Flamingo',
+        topSpeed: 56,
+        fearFactor: 3,
+        cuteness: 6,
+        lifeSpan: 40
     }
-          
 
 ]
 
