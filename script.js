@@ -3,7 +3,11 @@ let cardPlayer2;
 
 const actionButtons = document.querySelectorAll(".action-btn");
 const message = document.querySelector(".message-field");
- 
+let counterPlayer1 = document.querySelector(".counter-player1").innerHTML;
+let counterPlayer2 = document.querySelector(".counter-player2").innerHTML;
+let pointsPlayer1 = 0;
+let pointsPlayer2 = 0;
+
 function playWin() {
     const winSound = new Audio('sounds/win.ogg');
         winSound.play();
@@ -25,7 +29,12 @@ function playBirds() {
 
 function startGame() {
 
+    document.querySelectorAll(".title").forEach(title => title.classList.remove("title-animated"));
+
     playBirds();
+
+    document.querySelectorAll(".counter").forEach(counter => counter.classList.remove("hide"));
+    
     
     //hides start-button (class add .hide)
     startButton.classList.add("hide");
@@ -87,8 +96,12 @@ function compareSpeed() {
     document.querySelector("#speed-player2").classList.add("highlight");
    
     if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
+        pointsPlayer1++;
+        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
     } else {
+        pointsPlayer2++;
+        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -103,8 +116,12 @@ function compareFear() {
     document.querySelector("#fear-player2").classList.add("highlight");
 
     if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
+        pointsPlayer1++;
+        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
     } else {
+        pointsPlayer2++;
+        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -119,9 +136,13 @@ function compareCute() {
     document.querySelector("#cute-player2").classList.add("highlight");
    
     if (cardPlayer1.cuteness > cardPlayer2.cuteness) {
+        pointsPlayer1++;
+        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
 
     } else {
+        pointsPlayer2++;
+        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -136,8 +157,12 @@ function compareLife() {
     document.querySelector("#life-player2").classList.add("highlight");
    
     if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
+        pointsPlayer1++;
+        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
     } else {
+        pointsPlayer2++;
+        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -163,6 +188,9 @@ document.querySelector(".player2-card").classList.remove("hide");
 
 function replay() {
 
+    document.querySelectorAll(".title").forEach(title => title.classList.add("title-animated"));
+    document.querySelectorAll(".counter").forEach(counter => counter.classList.add("hide"));
+    
     document.querySelectorAll("td").forEach(element => element.classList.remove("highlight"));
     document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.add("hide"));
     

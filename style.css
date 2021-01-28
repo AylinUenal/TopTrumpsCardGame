@@ -35,16 +35,35 @@ body::after {
   font-size: 70px;
   color: #2a6d20;
   text-decoration: underline wavy 4px;
+  text-decoration-color: #fbb02d;
   text-shadow: 5px 2px 6px #fbb02d;
 }
+
+.title-animated {
+  animation: title 1s ease 2s infinite alternate;
+  transition-duration: 5.4s;
+}
+
+@keyframes title {
+  0% {
+    transform: scale(1.1, 0.9);
+  }
+  50% {
+    -webkit-transform: scale(0.9, 1.1) translateY(-0.5rem);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
 .title-right {
   right: 2px;
-  transform: rotate(30deg);
+  transform: rotate(29deg);
 }
 
 .title-left {
   left: 16px;
-  transform: rotate(-30deg);
+  transform: rotate(-17deg);
   top: -21px;
 }
 
@@ -54,6 +73,28 @@ body::after {
   position: absolute;
   left: 43%;
   transform: rotate(5deg);
+}
+
+.counter {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #fbb02d;
+  padding: 10px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 25px;
+  border: 1px outset #2a6d20;
+}
+
+.counter-player1 {
+  left: 40px;
+  top: 285px;
+}
+
+.counter-player2 {
+  right: 40px;
+  top: 285px;
 }
 
 .card {
@@ -164,10 +205,7 @@ body::after {
 
 .start-button {
   position: relative;
-  top: 0;
   cursor: pointer;
-  text-decoration: none !important;
-  outline: none !important;
   font-size: 35px;
   line-height: 1.5em;
   letter-spacing: 0.1em;
