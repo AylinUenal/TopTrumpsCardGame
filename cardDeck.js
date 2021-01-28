@@ -48,6 +48,7 @@ const cards = [
         lifeSpan: 30
         
     },
+
     {
         image: "images/koala.jpg",
         name: 'Koala Bear',
@@ -56,6 +57,7 @@ const cards = [
         cuteness: 9,
         lifeSpan: 18
     },
+
      {
         image: "images/flamingo.jpg",
         name: 'Flamingo',
@@ -63,6 +65,24 @@ const cards = [
         fearFactor: 3,
         cuteness: 6,
         lifeSpan: 40
+    },
+     
+     {
+        image: "images/giraffe.jpg",
+        name: 'Giraffe',
+        topSpeed: 60,
+        fearFactor: 6,
+        cuteness: 8,
+        lifeSpan: 26
+    },
+     
+      {
+        image: "images/leopard.jpg",
+        name: 'Leopard',
+        topSpeed: 58,
+        fearFactor: 8,
+        cuteness: 3,
+        lifeSpan: 17
     }
 
 ]
