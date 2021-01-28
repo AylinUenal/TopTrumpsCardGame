@@ -1,21 +1,34 @@
 let cardPlayer1;
 let cardPlayer2;
 
-const actionButtons = document.querySelectorAll(".action-btn");
-const message = document.querySelector(".message-field");
-let counterPlayer1 = document.querySelector(".counter-player1").innerHTML;
-let counterPlayer2 = document.querySelector(".counter-player2").innerHTML;
 let pointsPlayer1 = 0;
 let pointsPlayer2 = 0;
+
+const actionButtons = document.querySelectorAll(".action-btn");
+const message = document.querySelector(".message-field");
+let counterPlayer1 = document.querySelector(".counter-player1");
+let counterPlayer2 = document.querySelector(".counter-player2");
+
+// sounds
 
 function playWin() {
     const winSound = new Audio('sounds/win.ogg');
         winSound.play();
 }
 
+function playWinGame() {
+    const winGame = new Audio('sounds/WonGame.wav');
+        winGame.play();
+}
+
 function playLost() {
-const lostSound = new Audio('sounds/lose.flac');
+    const lostSound = new Audio('sounds/lose.flac');
     lostSound.play();
+}
+
+function playLostGame() {
+    const lostGame = new Audio('sounds/lostGame.mp3');
+    lostGame.play();
 }
 
 function playBirds() {
@@ -25,23 +38,24 @@ function playBirds() {
         birdSong1.play();
 }
 
-
+// on clicking the start button:
 
 function startGame() {
 
-    document.querySelectorAll(".title").forEach(title => title.classList.remove("title-animated"));
+    // hide and display cards and buttons accordingly
 
-    playBirds();
+    document.querySelectorAll(".title").forEach(title => title.classList.remove("title-animated"));
 
     document.querySelectorAll(".counter").forEach(counter => counter.classList.remove("hide"));
     
-    
-    //hides start-button (class add .hide)
     startButton.classList.add("hide");
-
-    // shows action buttons
     
     actionButtons.forEach(button => button.classList.remove("hide"));
+
+    document.querySelector(".card-backside-player1").classList.add("hide");
+    document.querySelector(".player1-card").classList.remove("hide");
+    
+    playBirds();
 
     // select random card from cardDeck and assign a card to both players
     
@@ -53,11 +67,7 @@ function startGame() {
         
     } 
 
-// hide backside of card player1, display frontside
-    document.querySelector(".card-backside-player1").classList.add("hide");
-    document.querySelector(".player1-card").classList.remove("hide");
-
-// assign card values to both players in DOM
+    // pass card values to both player cards in DOM
     
     document.querySelector("#animal-name-player1").innerHTML = cardPlayer1.name;
     document.querySelector("#animal-img-player1").src = cardPlayer1.image;
@@ -74,20 +84,10 @@ function startGame() {
     document.querySelector("#life-player2 span").innerHTML = cardPlayer2.lifeSpan;
     
 
-    }
+}
     
-function win() {
-message.innerHTML = "You win!";
-        document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.remove("hide"));
-        playWin();
-}
 
-function lost() {
-        message.innerHTML = "You lose!";
-        playLost();
-}
-
-// on click action button read value from button for player1 and 2 and compare, display you win or you lose (add transition)
+// on clicking an action button:
 
 function compareSpeed() {
     
@@ -96,12 +96,8 @@ function compareSpeed() {
     document.querySelector("#speed-player2").classList.add("highlight");
    
     if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
-        pointsPlayer1++;
-        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
     } else {
-        pointsPlayer2++;
-        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -116,12 +112,8 @@ function compareFear() {
     document.querySelector("#fear-player2").classList.add("highlight");
 
     if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
-        pointsPlayer1++;
-        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
     } else {
-        pointsPlayer2++;
-        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -136,13 +128,9 @@ function compareCute() {
     document.querySelector("#cute-player2").classList.add("highlight");
    
     if (cardPlayer1.cuteness > cardPlayer2.cuteness) {
-        pointsPlayer1++;
-        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
 
     } else {
-        pointsPlayer2++;
-        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -157,12 +145,8 @@ function compareLife() {
     document.querySelector("#life-player2").classList.add("highlight");
    
     if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
-        pointsPlayer1++;
-        document.querySelector(".counter-player1").innerHTML = pointsPlayer1;
         win();
     } else {
-        pointsPlayer2++;
-        document.querySelector(".counter-player2").innerHTML = pointsPlayer2;
         lost();
     }
 
@@ -170,12 +154,11 @@ function compareLife() {
     
 }
 
-
 function chooseAction() {
     
 // display card player2
-document.querySelector(".card-backside-player2").classList.add("hide");
-document.querySelector(".player2-card").classList.remove("hide");
+    document.querySelector(".card-backside-player2").classList.add("hide");
+    document.querySelector(".player2-card").classList.remove("hide");
 
 // hide action buttons
     actionButtons.forEach(button => button.classList.add("hide"));
@@ -185,6 +168,49 @@ document.querySelector(".player2-card").classList.remove("hide");
 
 }
 
+// cases win and lost:
+
+function win() {
+    
+    document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.remove("hide"));
+    
+    if (pointsPlayer1 < 4) {
+        pointsPlayer1++;
+        counterPlayer1.innerHTML = pointsPlayer1;   
+        message.innerHTML = "You win this round!";
+        playWin();
+    } else {
+        pointsPlayer1 = 0;
+        pointsPlayer2 = 0;
+        counterPlayer1.innerHTML = pointsPlayer1;
+        counterPlayer2.innerHTML = pointsPlayer2;
+        message.innerHTML = "You won the game!";
+        message.style.backgroundColor = "#FBB18F";
+        playWinGame()
+    }
+    
+}
+
+function lost() {
+    
+    if (pointsPlayer2 < 4) {
+        pointsPlayer2++;
+        counterPlayer2.innerHTML = pointsPlayer2;
+        message.innerHTML = "You lose this round!";
+        playLost();
+    } else {
+        pointsPlayer1 = 0;
+        pointsPlayer2 = 0;
+        counterPlayer1.innerHTML = pointsPlayer1;
+        counterPlayer2.innerHTML = pointsPlayer2;
+        message.innerHTML = "You lost the game!";
+        message.style.backgroundColor = "#7A3A2D";
+        playLostGame();
+    }
+    
+}
+
+// after clicking the replay button:
 
 function replay() {
 
