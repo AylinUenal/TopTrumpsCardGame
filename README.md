@@ -23,11 +23,12 @@ The game is built with Javascript, CSS, and HTML using DOM manipulation.
 
 ## Functionalities
 
-When you start the game, you and the computer as your opponent each get dealt a random card from the card deck of animals. From the categories on the animal card you choose the one you want to play with - either top speed, fear factor, cuteness, or life span. Then, the opponent's card is revealed, the category you chose is highlighted and there is a message displaying whether you won or lost this round. Also, there are sounds depending on the outcome of each round and the buttons clicked.
+When you start the game, you and the computer as your opponent each get dealt a random card from the card deck of animals. From the categories on the animal card you choose the one you want to play with - either top speed, fear factor, cuteness, or life span. 
 
  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617812094/Websites%20storage/example_cardgame_atkisk.png" width="600">
  
- Each round adds to the score of the winner. 
-  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810493/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.47.32_cnft6r.png" width="600">
+Then, the opponent's card is revealed, the category you chose is highlighted and there is a message displaying whether you won or lost this round. Each round adds to the score of the winner. Also, there are sounds depending on the outcome of each round and the buttons clicked. Whoever is first to win 5 rounds is the winner of the game.
+ 
+ <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810493/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.47.32_cnft6r.png" width="600">
 
-Try it out and put the sound on! 🔊
+**Try it out and put the sound on!** 🔊
