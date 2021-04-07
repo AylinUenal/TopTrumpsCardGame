@@ -11,7 +11,7 @@ My first project during the Ironhack bootcamp was building a card game from scra
 
 ## Home
 
- <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810583/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.49.10_qa8ysk.png">
+<img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617811521/Websites%20storage/Homepage_Game_yvhrd6.png">
 
 
 ## Tech stack
@@ -21,5 +21,5 @@ The game is built using Javascript, CSS, and HTML in combination with DOM manipu
 ## Functionalities
 
 
-  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810509/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.46.06_zniuji.png" width="600">
+ <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810509/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.46.06_zniuji.png" width="600">
   <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810493/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.47.32_cnft6r.png" width="600">
