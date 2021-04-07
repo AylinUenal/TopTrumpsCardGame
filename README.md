@@ -21,5 +21,5 @@ The game is built using Javascript, CSS, and HTML in combination with DOM manipu
 ## Functionalities
 
 
-  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810509/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.46.06_zniuji.png">
-  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810493/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.47.32_cnft6r.png">
+  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810509/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.46.06_zniuji.png" width="600">
+  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810493/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.47.32_cnft6r.png" width="600">
