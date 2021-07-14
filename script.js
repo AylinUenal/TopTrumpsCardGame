@@ -253,3 +253,6 @@ const replayButton = document.querySelector('.replay-button');
 replayButton.addEventListener('click', replay);
 
 
+$(function () {
+    // $("#table").css("background-color", "#2982D0");
+});
