@@ -8,7 +8,7 @@
 
 ## About
 
-My first project during the Ironhack bootcamp was building a card game from scratch within 4 days. I developed a top trumps card game with animals including score keeping.
+My first project during the Ironhack bootcamp was to build a card game from scratch within 4 days. I developed a top trumps card game with an animal card deck including functionalities like winning and losing messages as well as score keeping.
 
 
 ## Home
@@ -31,4 +31,4 @@ Then, the opponent's card is revealed, the category you chose is highlighted and
  
  <img src="https://res.cloudinary.com/dfy5clpwn/image/upload/v1617810493/Websites%20storage/Bildschirmfoto_2021-04-07_um_16.47.32_cnft6r.png" width="600">
 
-**Try it out and put the sound on!** 🔊
+**Try it out and turn on the sound!** 🔊
