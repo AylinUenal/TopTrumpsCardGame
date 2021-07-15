@@ -1,15 +1,9 @@
 $(function () {
-
     let cardPlayer1;
     let cardPlayer2;
 
     let pointsPlayer1 = 0;
     let pointsPlayer2 = 0;
-
-    const actionButtons = document.querySelectorAll(".action-btn");
-    const message = document.querySelector(".message-field");
-    let counterPlayer1 = document.querySelector(".counter-player1");
-    let counterPlayer2 = document.querySelector(".counter-player2");
 
     // sounds
 
@@ -40,23 +34,25 @@ $(function () {
             birdSong1.play();
     }
 
+    //Button event listeners
+
+    $(".start-button").click(startGame);
+    $(".btn-speed").click(compareSpeed);
+    $(".btn-fear").click(compareFear);
+    $(".btn-cute").click(compareCute);
+    $(".btn-life").click(compareLife);
+    $(".replay-button").click(replay);
+
     // on clicking the start button:
 
     function startGame() {
 
         // hide and display cards and buttons accordingly
 
-        document.querySelectorAll(".title").forEach(title => title.classList.remove("title-animated"));
-
-        document.querySelectorAll(".counter").forEach(counter => counter.classList.remove("hide"));
-        
-        startButton.classList.add("hide");
-        
-        actionButtons.forEach(button => button.classList.remove("hide"));
-
-        document.querySelector(".card-backside-player1").classList.add("hide");
-        document.querySelector(".player1-card").classList.remove("hide");
-        
+        $(".title").removeClass("title-animated");
+        $(".counter, .action-btn, .player1-card").removeClass("hide");
+        $(".start-button, .card-backside-player1").addClass("hide");
+               
         playBirds();
 
         // select random card from cardDeck and assign a card to both players
@@ -65,37 +61,33 @@ $(function () {
             cardPlayer2 = cards[Math.floor(Math.random() * cards.length)];
 
             while (cardPlayer1 === cardPlayer2) {
-                cardPlayer2 = cards[Math.floor(Math.random() * cards.length)];
-            
+                cardPlayer2 = cards[Math.floor(Math.random() * cards.length)];  
         } 
 
         // pass card values to both player cards in DOM
         
-        document.querySelector("#animal-name-player1").innerHTML = cardPlayer1.name;
-        document.querySelector("#animal-img-player1").src = cardPlayer1.image;
-        document.querySelector("#speed-player1 span").innerHTML = cardPlayer1.topSpeed;
-        document.querySelector("#fear-player1").innerHTML = cardPlayer1.fearFactor;
-        document.querySelector("#cute-player1").innerHTML = cardPlayer1.cuteness;
-        document.querySelector("#life-player1 span").innerHTML = cardPlayer1.lifeSpan;
+        $("#animal-img-player1").attr("src", cardPlayer1.image);
+        $("#animal-name-player1").html(cardPlayer1.name);
+        $("#speed-player1 span").html(cardPlayer1.topSpeed);
+        $("#fear-player1").html(cardPlayer1.fearFactor);
+        $("#cute-player1").html(cardPlayer1.cuteness);
+        $("#life-player1 span").html(cardPlayer1.lifeSpan);
         
-        document.querySelector("#animal-name-player2").innerHTML = cardPlayer2.name;
-        document.querySelector("#animal-img-player2").src = cardPlayer2.image;
-        document.querySelector("#speed-player2 span").innerHTML = cardPlayer2.topSpeed;
-        document.querySelector("#fear-player2").innerHTML = cardPlayer2.fearFactor;
-        document.querySelector("#cute-player2").innerHTML = cardPlayer2.cuteness;
-        document.querySelector("#life-player2 span").innerHTML = cardPlayer2.lifeSpan;
-        
+        $("#animal-img-player2").attr("src", cardPlayer2.image);
+        $("#animal-name-player2").html(cardPlayer2.name);
+        $("#speed-player2 span").html(cardPlayer2.topSpeed);
+        $("#fear-player2").html(cardPlayer2.fearFactor);
+        $("#cute-player2").html(cardPlayer2.cuteness);
+        $("#life-player2 span").html(cardPlayer2.lifeSpan);
 
     }
-        
-
+     
     // on clicking an action button:
 
     function compareSpeed() {
         
-        message.classList.remove("hide");
-        document.querySelector("#speed-player1").classList.add("highlight");
-        document.querySelector("#speed-player2").classList.add("highlight");
+        $(".message-field").removeClass("hide");
+        $("#speed-player1, #speed-player2").addClass("highlight");
     
         if (cardPlayer1.topSpeed > cardPlayer2.topSpeed) {
             win();
@@ -104,15 +96,13 @@ $(function () {
         }
 
         chooseAction();
-        
     }
 
     function compareFear() {
         
-            message.classList.remove("hide");
-    document.querySelector("#fear-player1").classList.add("highlight");
-        document.querySelector("#fear-player2").classList.add("highlight");
-
+        $(".message-field").removeClass("hide");
+        $("#fear-player1, #fear-player2").addClass("highlight");
+        
         if (cardPlayer1.fearFactor > cardPlayer2.fearFactor) {
             win();
         } else {
@@ -120,32 +110,27 @@ $(function () {
         }
 
         chooseAction();
-        
     }
 
     function compareCute() {
         
-        message.classList.remove("hide");
-        document.querySelector("#cute-player1").classList.add("highlight");
-        document.querySelector("#cute-player2").classList.add("highlight");
-    
+        $(".message-field").removeClass("hide");
+        $("#cute-player1, #cute-player2").addClass("highlight");
+           
         if (cardPlayer1.cuteness > cardPlayer2.cuteness) {
             win();
-
         } else {
             lost();
         }
 
         chooseAction();
-        
     }
 
     function compareLife() {
         
-        message.classList.remove("hide");
-        document.querySelector("#life-player1").classList.add("highlight");
-        document.querySelector("#life-player2").classList.add("highlight");
-    
+        $(".message-field").removeClass("hide");
+        $("#life-player1, #life-player2").addClass("highlight");
+           
         if (cardPlayer1.lifeSpan > cardPlayer2.lifeSpan) {
             win();
         } else {
@@ -153,109 +138,62 @@ $(function () {
         }
 
         chooseAction();
-        
     }
 
     function chooseAction() {
         
-    // display card player2
-        document.querySelector(".card-backside-player2").classList.add("hide");
-        document.querySelector(".player2-card").classList.remove("hide");
-
-    // hide action buttons
-        actionButtons.forEach(button => button.classList.add("hide"));
-
-    // display replay button
-        document.querySelector(".replay-button").classList.remove("hide");
-
+        $(".card-backside-player2, .action-btn").addClass("hide");
+        $(".player2-card, .replay-button").removeClass("hide");
     }
 
     // cases win and lost:
 
     function win() {
         
-        document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.remove("hide"));
+        $(".confetti").removeClass("hide");
         
         if (pointsPlayer1 < 4) {
             pointsPlayer1++;
-            counterPlayer1.innerHTML = pointsPlayer1;   
-            message.innerHTML = "You win this round!";
+            $(".counter-player1").html(pointsPlayer1);   
+            $(".message-field").html("You win this round!");
             playWin();
         } else {
             pointsPlayer1 = 0;
             pointsPlayer2 = 0;
-            counterPlayer1.innerHTML = pointsPlayer1;
-            counterPlayer2.innerHTML = pointsPlayer2;
-            message.innerHTML = "You won the game!";
-            message.style.backgroundColor = "#FBB18F";
+            $(".counter-player1").html(pointsPlayer1);
+            $(".counter-player2").html(pointsPlayer2);
+            $(".message-field").html("You won the game!");
+            $(".message-field").css("background-color", "#FBB18F");
             playWinGame()
         }
-        
     }
 
     function lost() {
         
         if (pointsPlayer2 < 4) {
             pointsPlayer2++;
-            counterPlayer2.innerHTML = pointsPlayer2;
-            message.innerHTML = "You lose this round!";
+            $(".counter-player2").html(pointsPlayer2);
+            $(".message-field").html("You lose this round!");
             playLost();
         } else {
             pointsPlayer1 = 0;
             pointsPlayer2 = 0;
-            counterPlayer1.innerHTML = pointsPlayer1;
-            counterPlayer2.innerHTML = pointsPlayer2;
-            message.innerHTML = "You lost the game!";
-            message.style.backgroundColor = "#7A3A2D";
+            $(".counter-player1").html(pointsPlayer1);
+            $(".counter-player2").html(pointsPlayer2);
+            $(".message-field").html("You lost the game!");
+            $(".message-field").css("background-color", "#7A3A2D");
             playLostGame();
         }
-        
     }
 
     // after clicking the replay button:
 
     function replay() {
 
-        document.querySelectorAll(".title").forEach(title => title.classList.add("title-animated"));
-        document.querySelectorAll(".counter").forEach(counter => counter.classList.add("hide"));
-        
-        document.querySelectorAll("td").forEach(element => element.classList.remove("highlight"));
-        document.querySelectorAll(".confetti").forEach(confetti => confetti.classList.add("hide"));
-        
-        message.classList.add("hide");
-        document.querySelector(".card-backside-player1").classList.remove("hide");
-        document.querySelector(".card-backside-player2").classList.remove("hide");
-
-        document.querySelector(".player1-card").classList.add("hide");
-        document.querySelector(".player2-card").classList.add("hide");
-
-        startButton.classList.remove("hide");
-        document.querySelector(".replay-button").classList.add("hide");
+        $(".title").addClass("title-animated");
+        $(".counter, .confetti, .player1-card, .player2-card, .replay-button, .message-field").addClass("hide");
+        $("td").removeClass("highlight");
+        $(".start-button, .card-backside-player1, .card-backside-player2").removeClass("hide");
     }
 
-
-    // eventListeners for buttons
-
-    const startButton = document.querySelector('.start-button');
-    startButton.addEventListener('click', startGame);
-
-    const speedButton = document.querySelector('.btn-speed');
-    speedButton.addEventListener('click', compareSpeed);
-
-    const fearButton = document.querySelector('.btn-fear');
-    fearButton.addEventListener('click', compareFear);
-
-    const cuteButton = document.querySelector('.btn-cute');
-    cuteButton.addEventListener('click', compareCute);
-
-    const lifeButton = document.querySelector('.btn-life');
-    lifeButton.addEventListener('click', compareLife);
-
-    const replayButton = document.querySelector('.replay-button');
-    replayButton.addEventListener('click', replay);
-
-
-
-    // Test jQuery: 
-    // $("#table").css("background-color", "#2982D0");
-});
+}); 
